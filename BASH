@@ -1,0 +1,48 @@
+#!/bin/bash
+filename=$1
+readarray -t arr <$1
+text=''
+latexchapters=''
+mkdir 'result'
+#latex headers 
+latexheaders="\documentclass{article}
+\usepackage[utf8]{inputenc}
+\author{Artsem Stankevich}
+\title{Ksiazka}
+\begin{document}
+\maketitle
+"
+chaptercounter=0
+tekst=()
+while [ $chaptercounter -le $3 ]
+do
+	text=''
+	i=0
+
+	while [ $i -le $2 ]
+	do
+		tekst1=$text$arr
+		i=$[$i+1]
+	done
+	tekst[$chaptercounter]=$tekst1
+	chaptercounter=$(($chaptercounter+1))
+
+done
+
+
+latextekst=''
+
+
+
+i=0
+while [ $i -le ${#tekst[@]} ]
+do
+	latextekst+='\section{'$i'}'${tekst[$i]}
+	i=$[$i+1]
+done
+
+latextext=$latexheaders' '$latextekst' \end{document}'
+
+echo $latextext > result/result.tex
+cd result
+latex 'result.tex' --output-format pdf
