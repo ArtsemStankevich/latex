@@ -25,6 +25,12 @@ function generate_table_result_for_latex(array_result) - > str
 
 #main.c
 #include <calculate.c>
+#include <roots.c>
+
 int main(){
-	calculate(.,,,);
+	int a,b,c;
+	roots = find_roots(..)
+	generate_roots_result_for_latex(roots);
+	data_for_table = calculate(....);
+	generate_table_results(data_for_table);	
 }
