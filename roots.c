@@ -1,7 +1,18 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
+double roots(double, double, double);
+
+int main(){
+	int a =12;
+	int b = 41;
+	int c = 412;
+
+	roots(a,b,c);
+
+
+}
+doble roots(double a, double b, double c)
 {
 	int a, b,c, b1, x1, x2, x;
 	b1 = b*b ;
@@ -16,7 +27,7 @@ int main()
 	
 }
 	if ( D < 0){
-	
-
+	printf("%d %d",x1,x2);
+}
 }
 }
