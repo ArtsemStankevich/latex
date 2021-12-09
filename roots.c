@@ -12,7 +12,7 @@ int main(){
 
 
 }
-doble roots(double a, double b, double c)
+double roots(double a, double b, double c)
 {
 	int a, b,c, b1, x1, x2, x;
 	b1 = b*b ;
