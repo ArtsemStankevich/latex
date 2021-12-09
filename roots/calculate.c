@@ -32,6 +32,6 @@ void generate_table_result_for_latex(array[][]){
 	for (int i=from; i<=to; i+k){
 		printf("%d & %d \ \hline", array[1el][2el], array[1el][2el+1]);
 	}
-	printf("end{tabular}
+	printf("end{tabular}");
 	
 }
