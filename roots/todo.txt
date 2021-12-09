@@ -1,0 +1,30 @@
+
+
+#roots.c
+function find_roots(a,b,c) -> 
+	{double a;
+	double b;
+	double c;
+
+	double d;
+	double x1;
+	double x2;
+	}
+(https://stackoverflow.com/questions/9653072/return-a-struct-from-a-function-in-c)
+
+
+function generate_roots_result_for_latex(struct data)->print data with latex markup
+https://www.caam.rice.edu/~heinken/latex/symbols.pdf
+
+
+#calculate.c
+function calculate(double a,double b, double c, double from, double to, k)-> [[a1,b1], [a2,b2], [a3,b3]...]
+function generate_table_result_for_latex(array_result) - > str
+
+
+
+#main.c
+#include <calculate.c>
+int main(){
+	calculate(.,,,);
+}
