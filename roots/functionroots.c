@@ -13,7 +13,7 @@ double find_roots(double a, double b, double c)
 }
     if (d == 0 ){
 	x =  -b/2*a;
-	int reults[]=[a, b, c, d, b1, x];
+	int results[]=[a, b, c, d, b1, x];
 	
 }
 	if ( d < 0){
