@@ -101,7 +101,7 @@ void print_latex(struct result results){
 	
 	
 	for(int i=0;i<=results.to;i++){
-    printf("%.1f %.1f \\ \\hline\n", results.table[i][0], results.table[i][1]);
+    printf("%.1f & %.1f \\ \\hline\n", results.table[i][0], results.table[i][1]);
 
 	}
 
