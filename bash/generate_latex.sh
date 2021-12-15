@@ -11,10 +11,8 @@ readarray -t arr < $1
 
 mkdir -p $result_dir
 
-rm -r tmp_charts
 rm file
 touch file
-mkdir tmp_charts
 
 #check is file exist
 if [ -a "$result_dir" ] ; then
@@ -47,7 +45,7 @@ title=x^2*${input_arr[0]}+x*${input_arr[1]}+${input_arr[2]}
     
     chart_tmp=${input_arr[0]}" "${input_arr[1]}"  "${input_arr[2]}" "${input_arr[3]}" "${input_arr[7]}" "${input_arr[8]}" "${input_arr[9]}
     echo $chart_tmp >> file
-    ./chart.r file
+    ./chart.r file 
 
     echo $res >> $result_dir/$result_file
 done
