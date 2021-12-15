@@ -67,8 +67,8 @@ void print_latex(struct result results){
     // printf("a=%lfb=%lf, root1=%lf", results.a, results.b, results.table[0][0]); //example
 
 
-	printf("Mamy funkcje %.1fx^2 + %.1fx + %.1f\n", results.a, results.b, results.c);
-	printf("\\Delta = %.1f^2 - 4\\times%.1f\\times%.1f\n", results.b, results.a, results.c);
+	printf("$Mamy funkcje %.1fx^2 + %.1fx + %.1f$\n", results.a, results.b, results.c);
+	printf("$\\Delta = %.1f^2 - 4\\times%.1f\\times%.1f$\n", results.b, results.a, results.c);
 	if(results.roots_num==2){
 		printf("x_1 = \frac{-%.1f + \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
 		printf("x_2 = \frac{-%.1f - \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
@@ -96,10 +96,10 @@ void print_latex(struct result results){
 	
 	
 	for(int i=0;i<=results.to;i++){
-    printf("%.1f & %.1f \\ \\hline\n", results.table[i][0], results.table[i][1]);
-
+    printf("%.1f & %.1f \\", results.table[i][0], results.table[i][1]);
+    printf("\\ \n");
 	}
-
+    printf("\\hline\n");
 	printf("\\end{tabular}\n");
 	
 	
