@@ -31,7 +31,7 @@ fi
 if ! [[ -w "$result_dir" ]] ; then
 	echo $result_dir":permission denied!"
 	exit
-fi
+fi 
 
 
 echo `cat src/latex_header.txt` > $result_dir/$result_file
@@ -40,21 +40,20 @@ for input in "${arr[@]}"
 do
    echo $input>tmp.txt
     input_arr=($input)
-    res=$(./roots <tmp.txt)
-    title=x^2*${input_arr[0]}+x*${input_arr[1]}+${input_arr[2]}
-    echo $(wrap_text_in_section 'section' "$title" '$res') >> $result_dir/$result_file
+    #    res=$(./roots <tmp.txt)
+    res='NEW'
+title=x^2*${input_arr[0]}+x*${input_arr[1]}+${input_arr[2]}
+    echo $(wrap_text_in_section 'section' "$title" "$res") >> $result_dir/$result_file
     
     chart_tmp=${input_arr[0]}" "${input_arr[1]}"  "${input_arr[2]}" "${input_arr[3]}" "${input_arr[7]}" "${input_arr[8]}" "${input_arr[9]}
     echo $chart_tmp >> file
-    #input_arr[0] = a,input_arr[1]=b, input_arr[2]=c    
-    #input_arr[6] = chart from, input_arr[7]= chart to, input_arr[8]= chart colour    
-#./chart.r
+    ./chart.r file
 
     echo $res >> $result_dir/$result_file
 done
 
 echo `cat src/latex_end.txt` >> $result_dir/$result_file
-#DODAJ TU POLECENIE DLA GENERACJI PDF Z $result_dir/$result_file.tex
+latex $result_dir/$result_file
 echo
 
 
