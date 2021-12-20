@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-struct result find_roots(double a, double b, double c, int roots_num);
+struct result find_roots(double a, double b, double c);
 void print_latex(struct result results);
 void calculate(struct result *results, double from, double to, double k);
 
@@ -13,7 +13,6 @@ struct result{
     double d;
 
     double roots[1];
-    int roots_num;
 
     double from;
     double to;
@@ -23,38 +22,29 @@ struct result{
 
 int main(){
 	double a, b, c, from, to, k;
-<<<<<<< HEAD:roots/roots.c
+
     int roots_num=0;
-	scanf("%lf", &a);
-	scanf("%lf", &b);
-	scanf("%lf", &c);
-	scanf("%lf", &from);
-	scanf("%lf", &to);
-	scanf("%lf", &k);
-	struct result res = find_roots(a, b, c, roots_num);
-=======
+	
+
 	scanf("%lf %lf %lf %lf %lf %lf", &a, &b, &c, &from, &to, &k);
 	struct result res = find_roots(a, b, c);
->>>>>>> d7f8eddcf8b91c528cf9244d4e7ea650f5c05bd4:roots/mainfunction.c
+
 	calculate(&res, from, to, k);
 print_latex(res);
 }
 
-struct result find_roots(double a, double b, double c, int roots_num)
+struct result find_roots(double a, double b, double c)
 {
     double roots[2];
 	double d = b*b - 4*a*c;
 	if (d > 0){
         roots[0] = (-b + sqrt(d))/(2 * a);
         roots[1] = (-b - sqrt(d))/(2 * a);
-        roots_num=2;
     }else if(d == 0 ){
-        roots_num=1;
         roots[0] =  -b/2*a;
-    }else{
-        roots_num=0;
     }
-    struct result results = {a,b,c,d,roots_num};
+    
+    struct result results = {a,b,c,d};
     return results;
 }
 
@@ -72,23 +62,13 @@ void calculate(struct result *results, double from, double to, double k){
 void print_latex(struct result results){
     
 
-    //use structure definition write function for print result in latex markup;
-    //THERE
-
-    // printf("a=%lfb=%lf, root1=%lf", results.a, results.b, results.table[0][0]); //example
-
-
-<<<<<<< HEAD:roots/roots.c
-
     printf("\\section{%.1fx^2+%.1f\\timesx+%.1f}\n", results.a, results.b, results.c);
 	printf("Mamy funkcje %.1fx^2 + %.1fx + %.1f\n", results.a, results.b, results.c);
 	printf("\\Delta = %.1f^2 - 4\\times%.1f\\times%.1f\n", results.b, results.a, results.c);
 	if(results.d>0){
-=======
-	printf("$Mamy funkcje %.1fx^2 + %.1fx + %.1f$\n", results.a, results.b, results.c);
-	printf("$\\Delta = %.1f^2 - 4\\times%.1f\\times%.1f$\n", results.b, results.a, results.c);
-	if(results.roots_num==2){
->>>>>>> d7f8eddcf8b91c528cf9244d4e7ea650f5c05bd4:roots/mainfunction.c
+
+	
+
 		printf("x_1 = \frac{-%.1f + \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
 		printf("x_2 = \frac{-%.1f - \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
 		printf("x_1 = %.1f\n", results.roots[0]);
@@ -104,11 +84,6 @@ void print_latex(struct result results){
 
 
 
-
-  //example for print table
-  // for(int i=0;i<=to;i++){
-  // printf("%lf %lf\n", results->table[i][0],  results->table[i][1]);
-  //  }
     printf("\n");
     printf("\n");
     printf("\n");
