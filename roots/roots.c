@@ -69,8 +69,8 @@ void print_latex(struct result results){
 
 	
 
-		printf("x_1 = \frac{-%.1f + \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
-		printf("x_2 = \frac{-%.1f - \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
+		printf("x_1 = \\frac{-%.1f + \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
+		printf("x_2 = \\frac{-%.1f - \\sqrt{%.1f}}{2\\times%.1f} \n", results.b, results.d, results.a);
 		printf("x_1 = %.1f\n", results.roots[0]);
 		printf("x_2 = %.1f\n", results.roots[1]);
 	}
