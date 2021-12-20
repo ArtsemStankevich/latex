@@ -84,9 +84,7 @@ void print_latex(struct result results){
 
 
 
-    printf("\n");
-    printf("\n");
-    printf("\n");
+    printf("\\newline\n");
     printf("\\begin{tabular}{|c|c|} \\hline \n");
 	
 	
