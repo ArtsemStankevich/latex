@@ -62,7 +62,7 @@ void calculate(struct result *results, double from, double to, double k){
 void print_latex(struct result results){
     
 
-    printf("\\section{%.1fx^2+%.1f\\timesx+%.1f}\n", results.a, results.b, results.c);
+    printf("\\section{%.1fx^2+%.1f*x+%.1f}\n", results.a, results.b, results.c);
 	printf("Mamy funkcje %.1fx^2 + %.1fx + %.1f\n", results.a, results.b, results.c);
 	printf("\\Delta = %.1f^2 - 4\\times%.1f\\times%.1f\n", results.b, results.a, results.c);
 	if(results.d>0){
@@ -97,7 +97,7 @@ void print_latex(struct result results){
     printf("\\hline\n");
 	printf("\\end{tabular}\n");
 	
-	printf("\\end{%.1fx^2+%.1f\\timesx+%.1f}\n", results.a, results.b, results.c);
+	printf("\\end{%.1fx^2+%.1f*x+%.1f}\n", results.a, results.b, results.c);
 	
 	
 }
