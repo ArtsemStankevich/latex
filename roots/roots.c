@@ -1,5 +1,4 @@
-
-include <stdio.h>
+#include <stdio.h>
 #include <math.h>
 
 struct result find_roots(double a, double b, double c);
