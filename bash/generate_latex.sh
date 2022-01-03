@@ -3,7 +3,7 @@
 function wrap_text_in_section(){
 	echo '\'"${1}{$2} $3 \end{$2}"
 }
-
+start_all=`date +%s%N`
 result_dir=$2
 result_file=$3.tex
 
@@ -39,7 +39,7 @@ let i=0
 
 for input in "${arr[@]}"
 do
-    
+    start=`date +%s%N`
    echo $input>tmp.txt
     input_arr=($input)
     res=$(./roots < tmp.txt)
@@ -49,12 +49,15 @@ do
     ./chart.r file $i"img"
     echo '\\\' >> $result_file
     echo "\includegraphics[width=0.5\textwidth]{charts_tmp/"$i"img.png}" >> $result_file
+    end=`date +%s%N`
+    time_elapsed=$(($end - $start))
+    echo "\newline $time_elapsed nanoseconds elpased" >> $result_file
     echo "\clearpage " >> $result_file
 let i=i+1
 done
-
+end_all=`date +%s%N`
+time_elapsed_all=$(($end - $start))
+echo "\newline $time_elapsed_all nanoseconds elpased for entire script" >> $result_file
 echo `cat src/latex_end.txt` >> $result_file
 pdflatex $result_file
 echo
-
-
