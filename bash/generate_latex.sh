@@ -32,26 +32,29 @@ if ! [[ -w "$result_dir" ]] ; then
 fi 
 
 
-echo `cat src/latex_header.txt` > $result_dir/$result_file
+mkdir $result_dir/"charts_tmp"
+echo `cat src/latex_header.txt` > $result_file
+
+let i=0
 
 for input in "${arr[@]}"
 do
+    
    echo $input>tmp.txt
     input_arr=($input)
-    #    res=$(./roots <tmp.txt)
-    res='NEW'
-title=x^2*${input_arr[0]}+x*${input_arr[1]}+${input_arr[2]}
-    echo $(wrap_text_in_section 'section' "$title" "$res") >> $result_dir/$result_file
-    
+    res=$(./roots < tmp.txt)
+    echo $res >> $result_file
     chart_tmp=${input_arr[0]}" "${input_arr[1]}"  "${input_arr[2]}" "${input_arr[3]}" "${input_arr[7]}" "${input_arr[8]}" "${input_arr[9]}
-    echo $chart_tmp >> file
-    ./chart.r file $result_dir
-
-    echo $res >> $result_dir/$result_file
+    echo $chart_tmp > file
+    ./chart.r file $i"img"
+    echo '\\\' >> $result_file
+    echo "\includegraphics[width=0.5\textwidth]{charts_tmp/"$i"img.png}" >> $result_file
+    echo "\clearpage " >> $result_file
+let i=i+1
 done
 
-echo `cat src/latex_end.txt` >> $result_dir/$result_file
-latex $result_dir/$result_file
+echo `cat src/latex_end.txt` >> $result_file
+pdflatex $result_file
 echo
 
 
