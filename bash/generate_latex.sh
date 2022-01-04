@@ -7,7 +7,13 @@ start_all=`date +%s%N`
 result_dir=$2
 result_file=$3.tex
 
-readarray -t arr < $1
+count=0
+while [ "$count" -le $1 ] ;
+do
+ arr[$count]=$RANDOM' '$RANDOM' '$RANDOM' '$RANDOM' '$RANDOM' '12' '$RANDOM' '$RANDOM' 'Yellow
+ let "count += 1"
+done
+
 
 mkdir -p $result_dir
 
