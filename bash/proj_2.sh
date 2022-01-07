@@ -1,25 +1,25 @@
 #!/bin/bash
 filename='test.tex'
-
+echo > $filename
 start=`date +%s%N`
-./generate_latex.sh input.txt result result
+./generate_latex.sh 20 result0
 end=`date +%s%N`
-time_elapsed_1=$(($end/100 - $start/100))
+time_elapsed_1=$(($end - $start))
 
 start=`date +%s%N`
-./generate_latex.sh input.txt result result
+./generate_latex.sh 10 result1
 end=`date +%s%N`
 time_elapsed_2=$(($end - $start))
 
 
 start=`date +%s%N`
-./generate_latex.sh input.txt result result
+./generate_latex.sh 100 result2
 end=`date +%s%N`
 time_elapsed_3=$(($end - $start))
 
 
 start=`date +%s%N`
-./generate_latex.sh input.txt result result
+./generate_latex.sh 50 result4
 end=`date +%s%N`
 time_elapsed_4=$(($end - $start))
 
@@ -30,20 +30,20 @@ echo '\documentclass{article}
 \pgfplotsset{compat=1.16}
 \begin{document} 
 \section{Equations}
-\newline Time elapsed to generate 2 equations (1)' >> $filename
+\newline Run 0: Time elapsed to generate 20 equations' >> $filename
 
 echo $time_elapsed_1 >> $filename
 
 
-echo 'ns \newline Time elapsed to generate 2 equations (2)' >> $filename
+echo 'ns \newline Run1: Time elapsed to generate 10 equations' >> $filename
 echo $time_elapsed_2 >> $filename
 echo 'ns' >> $filename
 
-echo '\newline Time elapsed to generate 2 equations (3)' >> $filename
+echo '\newline Run 2: Time elapsed to generate 100 equations' >> $filename
 echo $time_elapsed_3 >> $filename
 echo 'ns' >> $filename
 
-echo '\newline Time elapsed to generate 2 equations (4)' >> $filename
+echo '\newline Run3: Time elapsed to generate 50 equations' >> $filename
 echo $time_elapsed_4 >> $filename
 echo 'ns' >> $filename
 
@@ -70,10 +70,10 @@ echo $time_elapsed_4 >> $filename
 echo ')}; 
 \end{axis} 
 \end{tikzpicture} 
-\end{document}'>> $filename
+\end{document}'>> $filename 
 
-
-pdflatex test.tex
+pdflatex -interaction=nonstopmode test.tex 
 
 
 echo "Done!"
+
