@@ -1,0 +1,6 @@
+\documentclass{article} \usepackage{graphicx} 
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{polski} \author{C and bash} \title{Równiania}
+\begin{document} \includegraphics{output.png} \maketitle

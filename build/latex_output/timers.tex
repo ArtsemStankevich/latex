@@ -1,0 +1,33 @@
+
+\documentclass{article}
+\usepackage{pgfplots} 
+\pgfplotsset{compat=1.16}
+\begin{document} 
+\section{Equations}
+\newline Run 0: Time elapsed to generate 20 equations
+163394330
+ns \newline Run1: Time elapsed to generate 10 equations
+94202470
+ns
+\newline Run 2: Time elapsed to generate 100 equations
+664396224
+ns
+\newline Run3: Time elapsed to generate 50 equations
+479077685
+ns
+
+\begin{tikzpicture}
+\begin{axis}[ybar, title={\textbf{Time to execute equations [ns]}}, symbolic x coords={Run1, Run2, Run3, Run4},
+  legend pos = north west, axis y line=none, axis x line=bottom, nodes near coords, enlarge x limits=0.2, ] 
+\addplot+ coordinates {(Run1, 
+163394330
+) (Run2, 
+94202470
+) (Run3, 
+664396224
+) (Run4, 
+479077685
+)}; 
+\end{axis} 
+\end{tikzpicture} 
+\end{document}

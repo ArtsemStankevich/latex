@@ -1,3 +1,0 @@
-\documentclass{article} \usepackage[utf8]{inputenc}
-\usepackage{polski} \author{ihor malyi and bash} \title{Równiania}
-\begin{document} \maketitle

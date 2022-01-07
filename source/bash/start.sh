@@ -1,5 +1,6 @@
 #!/bin/bash
-filename='test.tex'
+filename='latex_output/timers.tex'
+touch $filename
 echo > $filename
 start=`date +%s%N`
 ./generate_latex.sh 20 result0
