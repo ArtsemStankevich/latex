@@ -9,7 +9,6 @@ result_file=$2.tex
 count=0
 while [ "$count" -le $1 ] ;
 do
-
  arr[$count]=$((RANDOM% 21 + 1))' '$((RANDOM% 21))' '$((RANDOM% 21))' '$((RANDOM% 21))' '$((RANDOM% 21))' '$((RANDOM% 13))' '$((RANDOM % 25))' '$((RANDOM% 21))' 'Yellow
  let "count += 1"
 done
