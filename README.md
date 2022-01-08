@@ -1,7 +1,7 @@
-./generate_latex.sh <input filename> <output dir> <output filename>
+./build.sh
 
-<input filename> contains data on equations to solve.
-a, b, c, range from calculate table, range to calculate table, step, chart from, chart to, chart colour
+cd build/
+./start.sh
 
 autors: Ihor Malyi, Artsem Stankievich, Michał Cyryło
 
