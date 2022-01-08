@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 struct result find_roots(double a, double b, double c);
 void print_latex(struct result results);
-void calculate(struct result *results, double from, double to, double k);
+void calculate(struct result *results, double from, double to, double kt);
 
 struct result{
     double a;
@@ -15,8 +16,6 @@ struct result{
     double x2;
    
 
-    double roots[2];
-
     double from;
     double to;
 
@@ -25,31 +24,43 @@ struct result{
 
 int main(){
 	double a, b, c, from, to, k;
-
     int roots_num=0;
+	double scores[5];
+	int n = 0;
+	while (n<=5)
+	{
+		if(scanf("%lf\n", &scores[n]) < 0) 
+			return 0;
+		n++;
+	}
+	a = scores[0];
+	b = scores[1];
+	c = scores[2];
+	from = scores[3];
+	to = scores[4];
+	k = scores[5];
 	
-
-	scanf("%lf %lf %lf %lf %lf %lf", &a, &b, &c, &from, &to, &k);
 	struct result res = find_roots(a, b, c);
+	
+	
 	calculate(&res, from, to, k);
 print_latex(res);
 }
 
+
 struct result find_roots(double a, double b, double c)
 {
+	
 	double x1;
 	double x2;
-    double roots[1];
 	double d = b*b - 4*a*c;
 	if (d > 0){
-        roots[0] = (-b + sqrt(d))/(2 * a);
-        roots[1] = (-b - sqrt(d))/(2 * a);
-        x1 = roots[0];
-        x2 = roots[1];
+		x1 = (-b + sqrt(d))/(2 * a);
+        x2 = (-b - sqrt(d))/(2 * a);
      
     }else if(d == 0 ){
-        roots[0] =  -b/(2*a);
-        x1 = roots[0];
+        x1 =  -b/(2*a);
+        
     }
     
     struct result results = {a,b,c,d,x1,x2};
@@ -57,13 +68,18 @@ struct result find_roots(double a, double b, double c)
 }
 
 void calculate(struct result *results, double from, double to, double k){
+	
+	
     double x=from;
     results->to= to;
-    for(int i=0;i<=to;i++){
+    int i=0;
+    while(x<=to){
         results->table[i][0]= x;
         results->table[i][1]= x*x*results->a+x*results->b+results->c;
-        x+=k;
+        x=x+k;
+        i++;
     }
+    results->to=i-1;
 }
 
 
