@@ -27,9 +27,9 @@ time_elapsed_4=$(($end - $start))
 
 
 echo '\documentclass{article}
-\usepackage{pgfplots} 
+\usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
-\begin{document} 
+\begin{document}
 \section{Equations}
 \newline Run 0: Time elapsed to generate 20 equations' >> $filename
 
@@ -51,8 +51,8 @@ echo 'ns' >> $filename
 echo '
 \begin{tikzpicture}
 \begin{axis}[ybar, title={\textbf{Time to execute equations [ns]}}, symbolic x coords={Run1, Run2, Run3, Run4},
-  legend pos = north west, axis y line=none, axis x line=bottom, nodes near coords, enlarge x limits=0.2, ] 
-\addplot+ coordinates {(Run1, ' >> $filename 
+  legend pos = north west, axis y line=none, axis x line=bottom, nodes near coords, enlarge x limits=0.2, ]
+\addplot+ coordinates {(Run1, ' >> $filename
 
 echo $time_elapsed_1 >> $filename
 
@@ -64,17 +64,16 @@ echo ') (Run3, ' >> $filename
 
 echo $time_elapsed_3 >> $filename
 
-echo ') (Run4, ' >> $filename 
+echo ') (Run4, ' >> $filename
 
 echo $time_elapsed_4 >> $filename
 
-echo ')}; 
-\end{axis} 
-\end{tikzpicture} 
-\end{document}'>> $filename 
+echo ')};
+\end{axis}
+\end{tikzpicture}
+\end{document}'>> $filename
 
-pdflatex -interaction=nonstopmode test.tex 
+pdflatex -interaction=nonstopmode $filename >err_log.txt
 
 
 echo "Done!"
-

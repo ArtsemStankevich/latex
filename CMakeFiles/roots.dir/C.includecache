@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/LABPK/imalyi/Dokumenty/latex/source/roots/roots.c
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+

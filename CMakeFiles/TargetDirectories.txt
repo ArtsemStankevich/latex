@@ -1,0 +1,3 @@
+/home/LABPK/imalyi/Dokumenty/latex/CMakeFiles/rebuild_cache.dir
+/home/LABPK/imalyi/Dokumenty/latex/CMakeFiles/roots.dir
+/home/LABPK/imalyi/Dokumenty/latex/CMakeFiles/edit_cache.dir

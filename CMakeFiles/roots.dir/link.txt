@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/roots.dir/source/roots/roots.c.o  -o roots -lm 
